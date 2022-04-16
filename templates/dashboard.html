@@ -12,11 +12,89 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <!-- Internal CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='site.css')}}"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:ital,wght@0,300;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/e98bd52044.js"
+      crossorigin="anonymous"
+    ></script>
 
     <title>Covid-19 Cough Detection</title>
   </head>
-  <body>
+  <body class="mx-md-5">
+    <nav class="topnav" id="myTopnav">
+      <div
+        class="d-flex d-md-none justify-content-between align-items-center mx-3 topnavbar"
+      >
+        <a class="logo" href="#"
+          ><img src="{{url_for('static',filename='images/covid.png')}}"
+        /></a>
+        <a class="javascript:void(0);" onclick="myFunction()"
+          ><i class="fa fa-bars mx-4"></i
+        ></a>
+      </div>
+      <ul
+        class="d-md-flex justify-content-space-between navbar mx-md-5 mx-4 my-md-3 expandable"
+      >
+        <li><a href="#About">About</a></li>
+        <li class="d-none d-md-block">.</li>
+        <li><a href="#Coughvid">Coughvid</a></li>
+        <li class="d-none d-md-block">.</li>
+        <li class="text-center logo d-none d-md-block">
+          <a href="#"
+            ><img src="{{url_for('static',filename='images/covid.png')}}"
+          /></a>
+        </li>
+        <li class="d-none d-md-block">.</li>
+        <li><a href="#Contact">Contact</a></li>
+        <li class="d-none d-md-block">.</li>
+        <li><a href="#Test">Test</a></li>
+      </ul>
+    </nav>
+    <div class="mx-5 d-flex hero rounded">
+      <img
+        class="rounded"
+        src="{{url_for('static',filename='images/6441782.jpg')}}"
+      />
+      <div class="m-5 title">
+        <h1>Covid-19 Cough Detection</h1>
+        <p>
+          Website ini digunakan untuk mendeteksi
+          <span class="text-important">Covid-19</span> melalui suara batuk
+          dengan Artificial Intelligence yaitu model Convolutional Neural
+          Network. Hasil dari proses ini dapat menjadi
+          <span class="text-important">rekomendasi</span> anda untuk melakukan
+          tes formal Covid-19 seperti
+          <span class="text-important">Swab atau PCR.</span>
+        </p>
+        <p class="italic">
+          This website is used to detect
+          <span class="text-important">Covid-19</span> through coughing sounds
+          with Artificial Intelligence, namely the Convolutional Neural Network
+          model. The results of this process can be your
+          <span class="text-important">recommendation</span> to carry out a
+          formal Covid-19 test such as
+          <span class="text-important">a Swab or PCR.</span>
+        </p>
 
+        <div></div>
+      </div>
+    </div>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -25,6 +103,32 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+    </script>
+    <!-- <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 50) {
+            document.getElementById("navbar").classList.add("fixed-top");
+            // add padding top to show content behind navbar
+            navbar_height = document.querySelector(".navbar").offsetHeight;
+            document.body.style.paddingTop = navbar_height + "px";
+          } else {
+            document.getElementById("navbar").classList.remove("fixed-top");
+            // remove padding top from body
+            document.body.style.paddingTop = "0";
+          }
+        });
+      });
+    </script> -->
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
