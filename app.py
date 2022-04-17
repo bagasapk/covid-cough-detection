@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template('dashboard.html')
+    return render_template('coughvid.html')
 
 @app.route("/hello/")
 @app.route("/hello/<name>")

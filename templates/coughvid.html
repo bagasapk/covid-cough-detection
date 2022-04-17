@@ -1,0 +1,30 @@
+{% extends "template.html" %} {% block content %} {% include "about.html" %}
+<!-- Dataset -->
+<div class="line"></div>
+<div class="dataset rounded mx-5 mb-5">
+  <div class="mx-auto my-4">
+    <h2 class="text-center">Coughvid Dataset</h2>
+  </div>
+  <div class="w-75 mx-auto datasetBlok rounded d-flex flex-wrap">
+    <img
+      class="col-4 img1"
+      src="{{url_for('static',filename='images/5741215.jpg')}}"
+    />
+    <img
+      class="col-4 img2"
+      src="{{url_for('static',filename='images/14113.jpg')}}"
+    />
+    <img
+      class="col-4 img3"
+      src="{{url_for('static',filename='images/ai-chip-artificial-intelligence-future-technology-innovation.jpg')}}"
+    />
+    <div class="col-4 p-5">
+      <h3>COUGHVID</h3>
+      <p>
+        >20.000 rekaman batuk crowdsourced dan >2000 rekaman dilabeli oleh ahli
+        paru-paru
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

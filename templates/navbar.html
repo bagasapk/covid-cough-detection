@@ -1,0 +1,47 @@
+{% block navbar %}
+<!-- Navbar -->
+<nav class="topnav" id="myTopnav">
+  <div
+    class="d-flex d-md-none justify-content-between align-items-center mx-3 topnavbar"
+  >
+    <a class="logo" href="#"
+      ><img src="{{url_for('static',filename='images/covid.png')}}"
+    /></a>
+    <a class="javascript:void(0);" onclick="myFunction()"
+      ><i class="fa fa-bars mx-4"></i
+    ></a>
+  </div>
+  <ul
+    class="d-md-flex justify-content-space-between navbar mx-md-5 mx-4 my-md-3 expandable"
+  >
+    <li><a href="#About">About</a></li>
+    <li class="d-none d-md-block">.</li>
+    <li><a href="#Coughvid">Coughvid</a></li>
+    <li class="d-none d-md-block">.</li>
+    <li class="text-center logo d-none d-md-block">
+      <a href="#"
+        ><img src="{{url_for('static',filename='images/covid.png')}}"
+      /></a>
+    </li>
+    <li class="d-none d-md-block">.</li>
+    <li><a href="#Contact">Contact</a></li>
+    <li class="d-none d-md-block">.</li>
+    <li><a href="#Test">Test</a></li>
+  </ul>
+</nav>
+{% endblock %}
+<!-- Optional JavaScript; choose one of the two! -->
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+{% block custom_js%}
+<script>
+  function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+</script>
+{%endblock%}

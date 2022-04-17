@@ -1,0 +1,30 @@
+{% block content %}
+<!-- About -->
+<div class="mx-4 mx-md-5 d-md-flex flex-md-column flex-lg-row hero rounded align-items-md-center align-items-lg-start">
+  <img
+    class="rounded img-fluid m-lg-3"
+    src="{{url_for('static',filename='images/6441782.jpg')}}"
+  />
+  <div class="m-4 m-md-0 m-lg-3 m-xl-5 my-xl-auto p-md-5 p-lg-0 title rounded">
+    <h1>Covid-19 Cough Detection</h1>
+    <p>
+      Website ini digunakan untuk mendeteksi
+      <span class="text-important">Covid-19</span> melalui suara batuk dengan
+      Artificial Intelligence yaitu model Convolutional Neural Network. Hasil
+      dari proses ini dapat menjadi
+      <span class="text-important">rekomendasi</span> anda untuk melakukan tes
+      formal Covid-19 seperti
+      <span class="text-important">Swab atau PCR.</span>
+    </p>
+    <p class="italic">
+      This website is used to detect
+      <span class="text-important">Covid-19</span> through coughing sounds with
+      Artificial Intelligence, namely the Convolutional Neural Network model.
+      The results of this process can be your
+      <span class="text-important">recommendation</span> to carry out a formal
+      Covid-19 test such as
+      <span class="text-important">a Swab or PCR.</span>
+    </p>
+  </div>
+</div>
+{% endblock %}
