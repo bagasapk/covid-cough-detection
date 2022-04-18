@@ -5,12 +5,12 @@
 }
 
 :root {
-  --color-bg: #f4eea9;
-  --color-third: #519259;
-  --color-secondary: #f0bb62;
-  --color-primary: #064635;
+  --color-bg: #ede6db;
+  --color-third: #417d7a;
+  --color-secondary: #f8b400;
+  --color-primary: #1a3c40;
   --color-fourth: #f55353;
-  --color-black: #1B1A17;
+  --color-black: #1b1a17;
   /* --color-fifth: #4e9c81;
     --color-sixth: #358873;
     --color-bg: #207567; */
@@ -51,7 +51,7 @@ body {
 
 p {
   font-family: var(--bs-font-roboto);
-  font-weight: bold;
+  font-weight: 300;
 }
 
 .text-important {
@@ -60,6 +60,9 @@ p {
 
 .rounded {
   border-radius: 0.75rem !important;
+}
+.rounded2 {
+  border-radius: 0.5rem;
 }
 
 .hero img {
@@ -88,12 +91,13 @@ p {
 
 .dataset {
   width: fit-content;
-  background-color: var(--color-secondary);
-  padding: 1rem;
-}
-
-.dataset h2 {
-  color: var(--color-black);
+  background-image: linear-gradient(
+    to bottom left,
+    var(--color-third),
+    var(--color-primary)
+  );
+  padding: 1rem 1rem 5rem 1rem;
+  color: white;
 }
 
 .datasetBlok {
@@ -114,6 +118,53 @@ p {
 
 .img3 {
   border-top-right-radius: 0.75rem;
+}
+
+.img4 {
+  box-shadow: rgb(0 0 0 / 45%) 10px 15px 30px 0px;
+}
+
+.datasetText h3 {
+  margin: 0;
+  margin-left: 0.75rem;
+  font-size: 0.75rem;
+}
+
+.datasetText i {
+  font-size: 0.5rem;
+}
+
+.datasetText p {
+  text-align: justify;
+}
+
+.datasetTextTitle {
+  font-size: 1.0375rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.datasetTextDesc {
+  font-size: 0.75rem;
+  font-weight: 300;
+}
+
+button {
+  color: white;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-size: 0.75rem;
+  font-family: var(--bs-font-roboto);
+  font-weight: bold;
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+}
+
+.button-primary {
+  background-color: var(--color-secondary);
+}
+.button-secondary {
+  background-color: var(--color-fourth);
 }
 
 /*
@@ -155,9 +206,15 @@ p {
   h1 {
     font-size: calc(1.375rem + 1.5vw - 0.3rem);
   }
+  h2 {
+    font-size: calc(1.325rem + .9vw - 0.3rem);
+  }
   a,
-  p {
+  p,.datasetTextTitle {
     font-size: calc(1rem - 0.3rem);
+  }
+  .img1{
+    border-top-right-radius: 0.75rem;
   }
 }
 
@@ -192,9 +249,19 @@ p {
   h1 {
     font-size: calc(1.375rem + 1.5vw - 0.2rem);
   }
+  h2 {
+    font-size: calc(1.325rem + .9vw - 0.3rem);
+  }
   a,
-  p {
+  p,.datasetTextTitle {
     font-size: calc(1rem - 0.2rem);
+  }
+  button{
+    padding-inline: 0.5rem;
+    padding-block: 0.25rem;
+  }
+  .dataset{
+    padding: 1rem 2rem 5rem 2rem;
   }
 }
 
@@ -214,21 +281,41 @@ p {
   h1 {
     font-size: calc(1.375rem + 1.5vw - 0.1rem);
   }
+  h2 {
+    font-size: calc(1.325rem + .9vw - 0.3rem);
+  }
   a,
-  p {
+  p,.datasetTextTitle {
     font-size: calc(1rem - 0.1rem);
+  }
+  .dataset{
+    padding: 1rem 2rem 5rem 2rem;
   }
 }
 
 /* Large screens ----------- */
+@media only screen and (min-width: 1440px) {
+  .dataset{
+    padding: 1rem 4rem 5rem 4rem;
+  }
+}
 @media only screen and (min-width: 2560px) {
   /* Styles */
   h1 {
     font-size: calc(1.375rem + 1.5vw + 0.5rem);
   }
+  h2 {
+    font-size: calc(1.325rem + .9vw + 0.5rem);
+  }
+  h3{
+    font-size: calc(1.75rem + 0.5rem) !important;
+  }
   a,
-  p {
-    font-size: calc(1rem + 0.5rem);
+  p,.datasetTextTitle,button {
+    font-size: calc(1rem + 0.5rem) !important;
+  }
+  .dataset{
+    padding: 1rem 2rem 5rem 2rem;
   }
 }
 
