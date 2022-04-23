@@ -1,0 +1,134 @@
+{% extends "template.html" %}{% block content %} {% include "coughvid.html" %}
+<div class="line"></div>
+<div class="m-4 m-md-5 col-md-12 d-md-flex">
+  <div class="col-md-3">
+    <h2>Peneliti dan Dosen Pembimbing</h2>
+    <p>Berikut adalah peneliti dan dosen pembimbing penelitian</p>
+    <div id="myDIV" class="d-flex iconContact">
+      <a
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="0"
+        class="btns active"
+        aria-current="true"
+        aria-label="Slide 1"
+      >
+        <i class="fa-solid fa-minus"></i>
+      </a>
+      <a
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
+        aria-current="false"
+        class="btns"
+      >
+        <i class="fa-solid fa-minus"></i>
+      </a>
+      <a
+        type="button"
+        class="btns"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="2"
+        aria-current="false"
+        aria-label="Slide 3"
+      >
+        <i class="fa-solid fa-minus"></i>
+      </a>
+    </div>
+  </div>
+  <div
+    id="carouselExampleIndicators"
+    class="carousel slide col-md-9 mt-4 mt-md-0"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-inner">
+      <div class="carousel-item active px-md-5">
+        <div class="d-flex flex-column flex-lg-row carousel-card align-items-center">
+          <img
+            src="{{url_for('static',filename='images/06.jpg')}}"
+            class="d-block w-25"
+            alt="peneliti"
+          />
+          <div class="m-4 m-md-2 mx-md-4 col-lg-5">
+            <h4>Anugerah Prima Bagaskara</h4>
+            <p>NPM: 140810180006</p>
+            <p>
+              Peneliti Penerapan Deep Learning pada Klasifikasi Suara Batuk
+              Pengidap Covid-19 dan Normal menggunakan Convolutional Neural
+              Network
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item px-md-5">
+        <div class="d-flex flex-column flex-lg-row carousel-card align-items-center">
+          <img
+            src="{{url_for('static',filename='images/14113.jpg')}}"
+            class="d-block w-25"
+            alt="peneliti"
+          />
+          <div class="m-4 m-md-2 mx-md-4 col-lg-5">
+            <h4>Anugerah Prima Bagaskara</h4>
+            <p>NPM: 140810180006</p>
+            <p>
+              Peneliti Penerapan Deep Learning pada Klasifikasi Suara Batuk
+              Pengidap Covid-19 dan Normal menggunakan Convolutional Neural
+              Network
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item px-md-5">
+        <div class="d-flex flex-column flex-lg-row carousel-card align-items-center">
+          <img
+            src="{{url_for('static',filename='images/14113.jpg')}}"
+            class="d-block w-25"
+            alt="peneliti"
+          />
+          <div class="m-4 m-md-2 mx-md-4 col-lg-5">
+            <h4>Anugerah Prima Bagaskara</h4>
+            <p>NPM: 140810180006</p>
+            <p>
+              Peneliti Penerapan Deep Learning pada Klasifikasi Suara Batuk
+              Pengidap Covid-19 dan Normal menggunakan Convolutional Neural
+              Network
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button> -->
+  </div>
+</div>
+{% endblock %} {% block custom_js%}
+<script>
+  // Add active class to the current button (highlight it)
+  var header = document.getElementById("myDIV");
+  var btns = header.getElementsByClassName("btns");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function () {
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+  }
+</script>
+{% endblock %}

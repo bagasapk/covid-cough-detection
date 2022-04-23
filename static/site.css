@@ -85,7 +85,7 @@ p {
 }
 
 .line {
-  border: 1px solid var(--color-secondary);
+  border: 1px solid var(--color-primary);
   margin-block: 3rem;
 }
 
@@ -166,6 +166,31 @@ button {
 .button-secondary {
   background-color: var(--color-fourth);
 }
+.iconContact i{
+  font-size: 2rem;
+  margin-right: 0.125rem;
+  opacity: 30%;
+  color: var(--color-third);
+}
+.iconContact a.active i{
+  opacity: 100%;
+}
+
+.carousel-card{
+  border: 1px solid rgba(0,0,0,.125);
+}
+
+.carousel-card h4 {
+  font-size: 1rem;
+}
+.carousel-card p {
+  font-size: 0.75rem;
+}
+
+
+.carousel-inner{
+  padding-right: 3rem;
+}
 
 /*
  * Author: http://stuffandnonsense.co.uk/blog/about/hardboiled_css3_media_queries/
@@ -211,10 +236,23 @@ button {
   }
   a,
   p,.datasetTextTitle {
-    font-size: calc(1rem - 0.3rem);
+    font-size: calc(1rem - 0.3rem) !important;
+  }
+  h3{
+    font-size: calc(1.3rem + .6vw - 0.3rem) !important;
+  }
+  h4{
+    font-size: calc(1.275rem + .3vw - 0.3rem) !important;
   }
   .img1{
     border-top-right-radius: 0.75rem;
+  }
+  .carousel-inner{
+    padding: 0;
+    /* width: 75%; */
+  }
+  .carousel-card img{
+    width: 100% !important;
   }
 }
 
@@ -250,9 +288,12 @@ button {
     font-size: calc(1.375rem + 1.5vw - 0.2rem);
   }
   h2 {
-    font-size: calc(1.325rem + .9vw - 0.3rem);
+    font-size: calc(1.325rem + .9vw - 0.2rem);
   }
   a,
+  h4{
+    font-size: calc(1.275rem + .3vw - 0.2rem) !important;
+  }
   p,.datasetTextTitle {
     font-size: calc(1rem - 0.2rem);
   }
@@ -262,6 +303,9 @@ button {
   }
   .dataset{
     padding: 1rem 2rem 5rem 2rem;
+  }
+  .carousel-card img{
+    width: 85% !important;
   }
 }
 
@@ -282,7 +326,10 @@ button {
     font-size: calc(1.375rem + 1.5vw - 0.1rem);
   }
   h2 {
-    font-size: calc(1.325rem + .9vw - 0.3rem);
+    font-size: calc(1.325rem + .9vw - 0.1rem);
+  }
+  h4{
+    font-size: calc(1.275rem + .3vw - 0.1rem) !important;
   }
   a,
   p,.datasetTextTitle {
@@ -291,6 +338,9 @@ button {
   .dataset{
     padding: 1rem 2rem 5rem 2rem;
   }
+  .carousel-card img{
+    width: 50% !important;
+  }
 }
 
 /* Large screens ----------- */
@@ -298,6 +348,23 @@ button {
   .dataset{
     padding: 1rem 4rem 5rem 4rem;
   }
+  h1 {
+    font-size: calc(1.375rem + 1.5vw);
+  }
+  h2 {
+    font-size: calc(1.325rem + .9vw);
+  }
+  h4{
+    font-size: calc(1.275rem + .3vw) !important;
+  }
+  a,
+  p,.datasetTextTitle {
+    font-size: calc(1rem);
+  }
+  .carousel-card img{
+    width: 35% !important;
+  }
+  
 }
 @media only screen and (min-width: 2560px) {
   /* Styles */
@@ -317,6 +384,8 @@ button {
   .dataset{
     padding: 1rem 2rem 5rem 2rem;
   }
+  
+  
 }
 
 /* iPhone 4 ----------- */
