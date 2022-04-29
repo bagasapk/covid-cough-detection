@@ -1,10 +1,16 @@
-{% extends "template.html" %}{% block content %} {% include "coughvid.html" %}
+{% block content %} {% include "coughvid.html" %}
 <div class="line"></div>
 <div class="m-4 m-md-5 col-md-12 d-md-flex">
   <div class="col-md-3">
     <h2>Peneliti dan Dosen Pembimbing</h2>
     <p>Berikut adalah peneliti dan dosen pembimbing penelitian</p>
-    <div id="myDIV" class="d-flex iconContact">
+  </div>
+  <div
+    id="carouselExampleIndicators"
+    class="carousel slide col-md-9 mt-4 mt-md-0"
+    data-bs-ride="carousel"
+  >
+    <div id="myDIV" class="d-flex iconContact carousel-indicators">
       <a
         type="button"
         data-bs-target="#carouselExampleIndicators"
@@ -36,15 +42,11 @@
         <i class="fa-solid fa-minus"></i>
       </a>
     </div>
-  </div>
-  <div
-    id="carouselExampleIndicators"
-    class="carousel slide col-md-9 mt-4 mt-md-0"
-    data-bs-ride="carousel"
-  >
     <div class="carousel-inner">
       <div class="carousel-item active px-md-5">
-        <div class="d-flex flex-column flex-lg-row carousel-card align-items-center">
+        <div
+          class="d-flex flex-column flex-lg-row carousel-card align-items-center"
+        >
           <img
             src="{{url_for('static',filename='images/06.jpg')}}"
             class="d-block w-25"
@@ -62,7 +64,9 @@
         </div>
       </div>
       <div class="carousel-item px-md-5">
-        <div class="d-flex flex-column flex-lg-row carousel-card align-items-center">
+        <div
+          class="d-flex flex-column flex-lg-row carousel-card align-items-center"
+        >
           <img
             src="{{url_for('static',filename='images/14113.jpg')}}"
             class="d-block w-25"
@@ -80,7 +84,9 @@
         </div>
       </div>
       <div class="carousel-item px-md-5">
-        <div class="d-flex flex-column flex-lg-row carousel-card align-items-center">
+        <div
+          class="d-flex flex-column flex-lg-row carousel-card align-items-center"
+        >
           <img
             src="{{url_for('static',filename='images/14113.jpg')}}"
             class="d-block w-25"

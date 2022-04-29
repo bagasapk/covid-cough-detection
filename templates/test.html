@@ -1,0 +1,122 @@
+{% extends "template.html" %}{% block content %} {% include "contact.html" %}
+<div class="line"></div>
+<div class="p-5 record">
+  <div class="text-center">
+    <h2>Cough Recorder and Covid-19 Test</h2>
+    <p>
+      Test ini digunakan sebagai alat rekomendasi untuk melakukan test Covid-19
+      secara formal (Swab/PCR)
+    </p>
+  </div>
+  <div class="text-center recordBox rounded">
+    <i class="fa-solid fa-microphone"></i>
+    <div>
+      <button class="button-primary" id="startRecording">
+        Start recording
+      </button>
+      <button class="button-secondary" id="stopRecording" disabled>
+        Stop recording
+      </button>
+    </div>
+    <div class="d-flex align-items-center justify-content-center">
+      <label id="minutes">00</label>:<label id="seconds">00</label>
+      <progress class="m-3 p-3 w-50" id="progress" value="0" max="15">
+        32%
+      </progress>
+    </div>
+    <!-- <img src= /> -->
+  </div>
+  {% endblock %} {%block custom_js%}
+  <script>
+    var minutesLabel = document.getElementById("minutes");
+    var secondsLabel = document.getElementById("seconds");
+    var isRecording = false;
+
+    var totalSeconds = 0;
+    setInterval(setTime, 1000);
+
+    function pad(val) {
+      var valString = val + "";
+      if (valString.length < 2) {
+        return "0" + valString;
+      } else {
+        return valString;
+      }
+    }
+
+    if (!navigator.getUserMedia) {
+      navigator.getUserMedia =
+        navigator.getUserMedia ||
+        navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia ||
+        navigator.msGetUserMedia;
+    }
+    if (navigator.getUserMedia) {
+      navigator.getUserMedia(
+        { audio: true },
+        handlerFunction,
+        function (stream) {
+          alert("Error capturing audio.");
+        }
+      );
+    } else alert("getUserMedia not supported in this browser.");
+
+    function handlerFunction(stream) {
+      rec = new MediaRecorder(stream);
+      rec.ondataavailable = (e) => {
+        audioChunks.push(e.data);
+        if (rec.state == "inactive") {
+          let blob = new Blob(audioChunks, { type: "audio/mpeg-3" });
+          sendData(blob);
+        }
+      };
+    }
+
+    function setTime() {
+      if (isRecording && totalSeconds < 15) {
+        ++totalSeconds;
+        secondsLabel.innerHTML = pad(totalSeconds % 60);
+        minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+        document.getElementById("progress").value = totalSeconds;
+      }
+    }
+
+    function sendData(data) {
+      var form = new FormData();
+      form.append("file", data, "data.mp3");
+      form.append("title", "data.mp3");
+      //Chrome inspector shows that the post data includes a file and a title.
+      $.ajax({
+        type: "POST",
+        url: "/",
+        data: form,
+        cache: false,
+        processData: false,
+        contentType: false,
+      }).done(function (data) {
+        console.log(data);
+      });
+    }
+
+    startRecording.onclick = (e) => {
+      isRecording = true;
+      navigator.mediaDevices.getUserMedia({ audio: true });
+      console.log("Recording are started..");
+      startRecording.disabled = true;
+      stopRecording.disabled = false;
+      audioChunks = [];
+      rec.start();
+    };
+
+    stopRecording.onclick = (e) => {
+      secondsLabel.innerHTML = pad(0);
+      document.getElementById("progress").value = 0;
+      isRecording = false;
+      console.log("Recording are stopped.");
+      startRecording.disabled = false;
+      stopRecording.disabled = true;
+      rec.stop();
+    };
+  </script>
+  {%endblock%}
+</div>
