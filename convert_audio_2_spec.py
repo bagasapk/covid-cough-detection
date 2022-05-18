@@ -5,14 +5,14 @@ from tensorflow.keras.models import load_model
 import random
 import numpy as np
 import matplotlib.pyplot as plt
-from flask import Flask
+from flask import Flask,url_for
 import os
 
 UPLOAD_PLT = "static/plt"
 
 app = Flask(__name__)
 app.config['UPLOAD_PLT'] = UPLOAD_PLT
-model = load_model('static\model\weights-improvement-13-0.84.hdf5')
+model = load_model(url_for('static',filename='\model\weights-improvement-13-0.84.hdf5'))
 
 def white_noise(y):
     wn = np.random.randn(len(y))
