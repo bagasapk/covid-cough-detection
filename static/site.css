@@ -29,6 +29,9 @@
 ul {
   padding: 0;
 }
+ul li.empty {
+  cursor: default;
+}
 
 a,
 .title {
@@ -49,6 +52,16 @@ body {
   background-color: var(--color-bg);
 }
 
+.hero img:hover,
+.datasetBlok img:hover,
+.button-primary:hover,
+.button-secondary:hover,
+.carousel-card img:hover,
+.buttonInput:hover {
+  transform: scale(1.05);
+  transition: all ease 0.5s;
+}
+
 p {
   font-family: var(--bs-font-roboto);
   font-weight: 300;
@@ -61,8 +74,14 @@ p {
 .rounded {
   border-radius: 0.75rem !important;
 }
+.roundedTop {
+  border-radius: 0.75rem 0.75rem 0 0;
+}
 .rounded2 {
   border-radius: 0.5rem;
+}
+.roundedBottom {
+  border-radius: 0 0 0.75rem 0.75rem;
 }
 
 .hero img {
@@ -149,7 +168,8 @@ p {
   font-weight: 300;
 }
 
-button {
+button,
+.buttonInput,input[type='submit'] {
   color: white;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -160,22 +180,24 @@ button {
   padding-block: 0.5rem;
 }
 
-.button-primary {
+.button-primary,
+.buttonInput {
   background-color: var(--color-secondary);
+  /* opacity: 0.75; */
 }
 .button-secondary {
   background-color: var(--color-fourth);
+  /* opacity: 0.75; */
 }
 
-.button-primary:disabled{
+.button-primary:disabled {
   opacity: 50%;
   background-color: gray;
 }
-.button-secondary:disabled{
+.button-secondary:disabled {
   opacity: 50%;
   background-color: gray;
 }
-
 
 .iconContact i {
   font-size: 2rem;
@@ -206,10 +228,10 @@ button {
   background-image: url("../static/images/v870-tang-35.jpg");
   background-position: center;
   background-size: 100%;
-  margin-inline: -3rem;
+  margin: 3rem -3rem;
 }
 
-.record i{
+.record i {
   font-size: 2rem;
   color: white;
   background-color: var(--color-black);
@@ -218,15 +240,140 @@ button {
   border-radius: 5rem;
 }
 
-.recordBox{
+.recordBox {
   background: white;
-  width: 50%;
-  margin-inline: auto;
+  width: 45%;
+  /* margin-inline: auto; */
   padding: 1.75rem;
 }
 
-.carousel-indicators [data-bs-target]{
+.carousel-indicators [data-bs-target] {
   background-color: var(--color-primary);
+}
+
+.copyright {
+  /* width: 100%; */
+  text-align: center;
+  font-family: var(--bs-font-roboto);
+  background-color: var(--color-black);
+  color: #fff;
+  margin: -3rem;
+  font-size: 0.75rem;
+}
+
+.result {
+  background-color: var(--color-bg);
+  /* color: var(--color-primary); */
+  color: var(--color-black);
+  padding: 1rem;
+  /* margin-inline: auto; */
+}
+
+.result img {
+  margin: 1rem;
+  /* display: flex; */
+  max-width: 15vw;
+  /* border: 0.25rem solid white; */
+  border-radius: 3rem;
+}
+.boxResult {
+  margin: 0rem auto;
+  /* border: 1px solid var(--color-primary); */
+  /* text-align: center; */
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+}
+
+.boxResult p {
+  color: var(--color-black) !important;
+  /* margin: 1rem; */
+  font-size: 1.25rem;
+  /* font-family: var(--bs-font-roboto) !important; */
+  /* text-indent: 1rem; */
+  /* font-weight: bolder !important; */
+}
+
+.result p {
+  /* color: var(--color-secondary); */
+  /* font-weight: bold; */
+  /* font-family: var(--bs-font-roboto); */
+  text-align: center;
+  margin: 0 0 1.5rem 0;
+}
+
+.result button {
+  background-color: white;
+  color: var(--color-black);
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  top: -1rem;
+}
+
+progress {
+  width: 50%;
+}
+
+#loading {
+  display: none;
+  right: 0;
+  left: 0;
+  margin: 12px auto;
+  position: absolute;
+  z-index: 1000;
+  width: 30rem;
+  height: 30rem;
+  background: url(../static/images/Loader.gif) no-repeat;
+  background-size: contain;
+  cursor: wait;
+}
+
+#Test {
+  opacity: 1;
+}
+
+.verticalLine {
+  border-left: 3px solid var(--color-black);
+  height: 100%;
+}
+
+.or {
+  margin: 0;
+  margin-block: 1rem;
+  font-weight: bold;
+  color: var(--color-blackb);
+}
+
+.recordInput {
+  text-align: center;
+  color: var(--color-black);
+  padding-block: 5rem;
+}
+
+.titleInput {
+  font-size: 1.5rem;
+  font-family: var(--bs-font-sans-serif);
+}
+
+.labelInput {
+  font-weight: bold;
+}
+.requiredInput {
+  opacity: 0.75;
+}
+
+.buttonInput {
+  cursor: pointer;
+}
+
+input[type="submit"]{
+  color: white;
+  border: none;
+  font-family: var(--bs-font-roboto);
 }
 /*
  * Author: http://stuffandnonsense.co.uk/blog/about/hardboiled_css3_media_queries/
@@ -291,6 +438,44 @@ button {
   .carousel-card img {
     width: 100% !important;
   }
+  .record,
+  .copyright {
+    margin: 0;
+  }
+  .record i {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+  .recordBox {
+    /* padding: 5rem; */
+    width: 100%;
+  }
+  label#minutes,
+  label#seconds {
+    margin-block: 1rem;
+  }
+  progress {
+    width: 100% !important;
+  }
+  #loading {
+    margin: 150px auto;
+    width: 17rem;
+    height: 20rem;
+  }
+  .boxResult {
+    width: 100%;
+  }
+  .result img {
+    max-width: 7rem;
+  }
+  .verticalLine{
+    border-left: none;
+    border-bottom: 1px solid var(--color-black);
+    width: 100%;
+  }
+  .or{
+    margin: 1rem;
+  }
 }
 
 /* Smartphones (landscape) ----------- */
@@ -345,6 +530,19 @@ button {
   .carousel-card img {
     width: 85% !important;
   }
+  .record i {
+    font-size: 2rem;
+    padding: 2rem;
+  }
+  #loading {
+    width: 27rem;
+  }
+  .boxResult {
+    width: 75%;
+  }
+  .result img {
+    max-width: 8rem;
+  }
 }
 
 /* iPads (landscape) ----------- */
@@ -379,6 +577,16 @@ button {
   }
   .carousel-card img {
     width: 50% !important;
+  }
+  .carousel-indicators {
+    left: 7rem;
+    top: 12rem;
+  }
+  .boxResult {
+    width: 50%;
+  }
+  .result img {
+    max-width: 15rem;
   }
 }
 

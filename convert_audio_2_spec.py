@@ -1,6 +1,7 @@
 import librosa
 import cv2
 from sklearn.preprocessing import StandardScaler
+from tensorflow.keras.models import load_model
 import random
 import numpy as np
 import matplotlib.pyplot as plt
@@ -11,6 +12,7 @@ UPLOAD_PLT = "static/plt"
 
 app = Flask(__name__)
 app.config['UPLOAD_PLT'] = UPLOAD_PLT
+model = load_model('static\model\weights-improvement-13-0.84.hdf5')
 
 def white_noise(y):
     wn = np.random.randn(len(y))
@@ -64,13 +66,16 @@ def preprocess(feature, featureSize):
     return feature
 
 def generategraph(filename,file):
-    plt.figure(figsize=(2.24,2.24))
-    ax = plt.axes()
+    fig = plt.figure(figsize=(2.24,2.24))
+    ax = plt.Axes(fig, [0., 0., 1., 1.])
+    # plt.axis('off')
     ax.set_axis_off()
+    fig.add_axes(ax)
+    # plt.set_cmap('hot')
     savefile = filename + '.png'  # file might need to be replaced by a string
     full_file_name = os.path.join(app.config['UPLOAD_PLT'], savefile)
     plt.imshow(file)
-    plt.savefig(full_file_name)
+    plt.savefig(full_file_name, bbox_inches='tight',pad_inches=0)
     return savefile 
 
 def printPredict(feature):
@@ -80,4 +85,4 @@ def printPredict(feature):
             predicted = 'Negative'
         else :
             predicted = 'Positive'
-    return '<p>Predicted:{0}\n{1} Covid-19</p>'.format(label,predicted)
+    return 'Predicted:{0} {1} Covid-19'.format(label,predicted)

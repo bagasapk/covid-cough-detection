@@ -1,10 +1,10 @@
 {% block content %} {% include "about.html" %}
 <!-- Dataset -->
-<div class="line"></div>
-<div class="dataset rounded mx-4 mx-md-5 mb-5">
+<!-- <div class="line"></div> -->
+<div id="Coughvid" class="dataset roundedBottom mx-4 mx-md-5 mb-5">
   <div class="mx-auto my-4">
     <h2 class="text-center">Coughvid Dataset</h2>
-    <p class="text-center">Cough Covid-19 Crowdsourced Dataset</p>
+    <p class="text-center">Cough Covid-19 Crowdsourced Dataset adalah Dataset yang digunakan untuk pelatihan model Artificial Intelligence</p>
   </div>
   <div class="col-12 col-xl-11 mx-auto datasetBlok rounded d-flex flex-wrap">
     <img
@@ -24,9 +24,17 @@
         <i class="fa fa-database"></i>
         <h3>Coughvid</h3>
       </div>
-      <p class="datasetTextTitle my-2">> 20.000 Rekaman</p>
-      <p class="datasetTextDesc">batuk crowdsourced dan > 2000 rekaman dilabeli oleh ahli paru-paru</p>
-      <button class="rounded2 button-primary">Info Lanjutan</button>
+      <p class="datasetTextTitle my-2">Lebih dari 20.000 rekaman</p>
+      <p class="datasetTextDesc">
+        batuk crowdsourced dan lebih dari 2000 rekaman dilabeli oleh ahli
+        paru-paru
+      </p>
+      <button
+        onclick="window.location.href = 'https://coughvid.epfl.ch/'"
+        class="rounded2 button-primary"
+      >
+        Info Lanjutan
+      </button>
     </div>
     <img
       class="d-md-none d-lg-block col-12 col-md-4 img4"
@@ -37,9 +45,18 @@
         <i class="fa fa-database"></i>
         <h3>Covid-19</h3>
       </div>
-      <p class="datasetTextTitle my-2">> 20.000 Crowdsourced Recordings</p>
-      <p class="datasetTextDesc">and > 2000 recordings labeled by pulmonologists</p>
-      <button class="rounded2 button-secondary">More Information</button>
+      <p class="datasetTextTitle my-2">
+        More than 20.000 Crowdsourced Recordings
+      </p>
+      <p class="datasetTextDesc">
+        and more than 2000 recordings labeled by pulmonologists
+      </p>
+      <button
+        onclick="window.location.href = 'https://coughvid.epfl.ch/'"
+        class="rounded2 button-secondary"
+      >
+        More Information
+      </button>
     </div>
   </div>
 </div>

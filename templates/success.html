@@ -1,0 +1,16 @@
+{% extends "template.html" %} {% block content %}
+<div class="result rounded">
+  <h2 class="text-center">Test Result</h2>
+  <p>Your mel-spectrogram test result</p>
+  <div class="boxResult rounded">
+    <img
+      class="rounded"
+      src="{{messages}}"
+    />
+    <p>{{output}}</p>
+  </div>
+  <button type="button" onclick="window.location.href = '/'" class="rounded">
+    Back to home
+  </button>
+</div>
+{% endblock %}
