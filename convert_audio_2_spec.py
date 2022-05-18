@@ -12,7 +12,7 @@ UPLOAD_PLT = "static/plt"
 
 app = Flask(__name__)
 app.config['UPLOAD_PLT'] = UPLOAD_PLT
-model = load_model('static/model/weights-improvement-13-0.84.h5')
+model = load_model('static/model/weights-improvement-13-0.84.hdf5')
 
 def white_noise(y):
     wn = np.random.randn(len(y))
