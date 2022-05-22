@@ -6,7 +6,7 @@ import io
 
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
-from flask import render_template,flash,request,redirect,Response,session,url_for,Flask
+from flask import render_template,flash,request,redirect,Response,session,url_for,Flask,send_from_directory
 from convert_audio_2_spec import convert_audio_to_mel
 from convert_audio_2_spec import preprocess
 from convert_audio_2_spec import generategraph
@@ -66,3 +66,7 @@ def success():
     messages = session['messages'] 
     output = session['output']
     return render_template('success.html', messages = messages, output = output)
+
+@app.route('/model/<path:path>')
+def send_report(path):
+    return send_from_directory('static', path)
